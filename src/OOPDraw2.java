@@ -279,6 +279,8 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 			a = (MyRoundRect) vt.get(i);
 			a.setWidth(nwidth1);
 			a.setHeight(nheight1);
+			a.setArcWidth(10);
+			a.setArcHeigth(10);
 			a.setStart(newstart);
 		}
 		repaint();
