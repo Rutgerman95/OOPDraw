@@ -25,12 +25,10 @@ class MyRoundRect extends AbstractShape {
 	
 	public void setArcWidth(int aw) {
 		arcwidth = aw;
-		aw = 5;
 	}
 	
 	public void setArcHeigth(int ah) {
 		archeigth = ah;
-		ah = 5;
 	}
 
 	public Point getStart() {

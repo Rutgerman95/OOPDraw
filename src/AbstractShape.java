@@ -9,7 +9,6 @@ import java.awt.Point;
 public abstract class AbstractShape extends Object
 
 {
-
 	// Data members
 	protected Point ptStart; // Start point of shape
 
