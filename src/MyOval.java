@@ -1,51 +1,39 @@
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
-
+import java.awt.geom.Ellipse2D;
 /**
  *  Class MyOval for drawing ovals is derived
  *  from our 'base class' AbstratShape
  */
-class MyOval extends AbstractShape {
+public class MyOval implements AbstractShape {
+	
+	private Ellipse2D.Float oval;
+	private Point startPoint, endPoint;
+	
+	public MyOval(Point p) {
+		oval = new Ellipse2D.Float();
+		startPoint = new Point(0, 0);
+		endPoint = new Point(0, 0);
+		setStart(p);
+	}
 
+	@Override
 	public void setStart(Point pt) {
-		ptStart = pt;
+		startPoint = pt;
+		oval.setFrame(pt.getX(), pt.getY(), endPoint.getX() ,endPoint.getY());
 	}
 
+	@Override
 	public void setEnd(Point pt) {
-		ptEnd = pt;
+		endPoint = pt;
+		oval.setFrameFromDiagonal(startPoint.getX(), startPoint.getY() ,pt.getX() ,pt.getY());
 	}
 
-	public void setWidth(int w) {
-		nwidth = w;
+	@Override
+	public void draw(Graphics2D g) {
+		//g.setColor(Color.green);
+		((Graphics2D) g).draw(oval);
 	}
-
-	public void setHeight(int h) {
-		nheight = h;
-	}
-
-	public Point getStart() {
-		return ptStart;
-	}
-
-	public Point getEnd() {
-		return new Point(0, 0);
-	}
-
-	public int getWidth() {
-		return nwidth;
-	}
-
-	public int getHeight() {
-		return nheight;
-	}
-
-	// Drawing routine
-	public void Draw(Graphics2D g) {
-		g.setColor(Color.green.darker()); // Set default color
-		g.drawOval(ptStart.x, ptStart.y, nwidth, nheight);
-	}
-
 }
 
 // Class cOval ends

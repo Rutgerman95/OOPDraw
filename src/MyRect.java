@@ -1,48 +1,39 @@
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.geom.Rectangle2D;
 
 // Class cRect for drawing Rects is derived
 // from our 'base class' cShape
 
-class MyRect extends AbstractShape {
+class MyRect implements AbstractShape {
 
+	private Rectangle2D.Float rect;
+	private Point startPoint, endPoint;
+	
+	public MyRect(Point p) {
+		rect = new Rectangle2D.Float();
+		endPoint = new Point(0, 0);
+		setStart(p);
+	}
+
+	@Override
 	public void setStart(Point pt) {
-		ptStart = pt;
+		startPoint = pt;
+		rect.setRect(pt.getX(), pt.getY(), endPoint.getX(), endPoint.getY());
 	}
 
+	@Override
 	public void setEnd(Point pt) {
-		ptEnd = pt;
+		endPoint = pt;
+		rect.setFrameFromDiagonal(startPoint, pt);
+		
 	}
 
-	public void setWidth(int w) {
-		nwidth = w;
-	}
-
-	public void setHeight(int h) {
-		nheight = h;
-	}
-
-	public Point getStart() {
-		return ptStart;
-	}
-
-	public Point getEnd() {
-		return new Point(0, 0);
-	}
-
-	public int getWidth() {
-		return nwidth;
-	}
-
-	public int getHeight() {
-		return nheight;
-	}
-
-	// Drawing routine
-	public void Draw(Graphics2D g) {
-		g.setColor(Color.blue.brighter()); // Set default color
-		g.drawRect(ptStart.x, ptStart.y, nwidth, nheight);
+	@Override
+	public void draw(Graphics2D g) {
+		//g.setColor(Color.blue);
+		((Graphics2D) g).draw(rect);
+		
 	}
 
 }
