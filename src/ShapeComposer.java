@@ -1,5 +1,5 @@
 
-public interface ShapeComposr {
+public interface ShapeComposer {
 	
 	public AbstractShape A;
 	
