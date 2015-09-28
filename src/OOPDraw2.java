@@ -78,8 +78,6 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 	public MyOval o;
 
 	public MyRect r;
-	
-	public MyRoundRect a;
 
 	public Point startpos, endpos; // Declare the start and end positions
 
@@ -97,8 +95,6 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 	public boolean boval = false; // hit/which shapes is to be drawn
 
 	boolean brect = false;
-	
-	boolean bround = false;
 
 	public static void main(String[] args) {
 		OOPDraw2 frame = new OOPDraw2();
@@ -143,7 +139,6 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 				bline = true;
 				boval = false;
 				brect = false;
-				bround = false;
 			}
 		});
 		btnOval = new Button("Oval");
@@ -154,7 +149,6 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 				bline = false;
 				boval = true;
 				brect = false;
-				bround = false;
 			}
 		});
 		btnRect = new Button("Rectangle");
@@ -165,18 +159,6 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 				bline = false;
 				boval = false;
 				brect = true;
-				bround = false;
-			}
-		});
-		btnRoundRect = new Button("Rounded Rectangle");
-		btnRoundRect.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				bline = false;
-				boval = false;
-				brect = false;
-				bround = true;
 			}
 		});
 		btnClear = new Button("Clear");
@@ -196,7 +178,6 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 		add(btnLine);
 		add(btnOval);
 		add(btnRect);
-		add(btnRoundRect);
 		add(btnClear);
 	}
 
